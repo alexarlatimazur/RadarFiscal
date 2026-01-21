@@ -1,0 +1,7 @@
+Source/Client/RadarFiscal.exe
+Source/Client/lib/x86_64-win64/RadarFiscal.compiled
+Source/Client/lib/x86_64-win64/ufrmmain.ppu
+*.o
+*.ppu
+Source/Client/lib/x86_64-win64/RadarFiscal.res
+*.o
