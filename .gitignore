@@ -5,3 +5,12 @@ Source/Client/lib/x86_64-win64/ufrmmain.ppu
 *.ppu
 Source/Client/lib/x86_64-win64/RadarFiscal.res
 *.o
+Build/Client/lib/x86_64-win64/RadarFiscal.compiled
+Build/Client/lib/x86_64-win64/RadarFiscal.obj
+Build/Client/lib/x86_64-win64/RadarFiscal.res
+Build/Client/lib/x86_64-win64/ufrmCadastroEmpresas.lfm
+Build/Client/lib/x86_64-win64/ufrmConfiguracoes.lfm
+Build/Client/lib/x86_64-win64/ufrmmain.lfm
+Build/Client/RadarFiscal.exe
+Database/RADARFISCAL.zip
+Database/Script_RadarFiscal.sql

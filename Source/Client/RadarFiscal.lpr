@@ -10,7 +10,9 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, ufrmMain
+  Forms, opensslsockets, ufrmMain, ufrmConfiguracoes, ufrmCadastroEmpresas, uBaseEntity,
+  uEmpresa, uCertificado, uDocumento, uUsuario, uConfig, uDBConnection,
+  uEmpresaDAO
   { you can add units after this };
 
 {$R *.res}
@@ -19,7 +21,9 @@ begin
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TFrmmain, Frmmain);
+  Application.CreateForm(TfrmConfiguracoes, frmConfiguracoes);
+  Application.CreateForm(TfrmCadastroEmpresas, frmCadastroEmpresas);
   Application.Run;
 end.
 
