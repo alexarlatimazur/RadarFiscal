@@ -536,14 +536,36 @@ var
   JSONObject: TJSONObject;
   URL: string;
   CNPJLimpo: string;
+  I: Integer;
 begin
-  // Remove caracteres não numéricos do CNPJ
-  CNPJLimpo := StringReplace(ACNPJ, '.', '', [rfReplaceAll]);
-  CNPJLimpo := StringReplace(CNPJLimpo, '/', '', [rfReplaceAll]);
-  CNPJLimpo := StringReplace(CNPJLimpo, '-', '', [rfReplaceAll]);
+  // Remove TODOS os caracteres não numéricos do CNPJ
+  CNPJLimpo := '';
+  for I := 1 to Length(ACNPJ) do
+  begin
+    if ACNPJ[I] in ['0'..'9'] then
+      CNPJLimpo := CNPJLimpo + ACNPJ[I];
+  end;
   
-  // URL da API BrasilAPI
-  URL := 'https://brasilapi.com.br/api/cnpj/v1/' + CNPJLimpo;
+  // Remover espaços em branco
+  CNPJLimpo := Trim(CNPJLimpo);
+  
+  // Validar CNPJ limpo
+  if CNPJLimpo = '' then
+  begin
+    ShowMessage('CNPJ inválido. Digite apenas números.');
+    Exit;
+  end;
+  
+  if Length(CNPJLimpo) <> 14 then
+  begin
+    ShowMessage('CNPJ deve ter exatamente 14 dígitos.' + #13#10 +
+                'Você digitou: ' + IntToStr(Length(CNPJLimpo)) + ' dígitos' + #13#10 +
+                'CNPJ informado: ' + ACNPJ);
+    Exit;
+  end;
+  
+  // URL da API ReceitaWS (SEM LIMITE e SEM HTTPS!)
+  URL := 'http://receitaws.com.br/v1/cnpj/' + CNPJLimpo;
   
   HTTPClient := TFPHTTPClient.Create(nil);
   try
@@ -557,30 +579,50 @@ begin
       // Parse JSON
       JSON := GetJSON(Response);
       try
-        if JSON is TJSONObject then
-        begin
-          JSONObject := TJSONObject(JSON);
-          
-          // Preencher campos com os dados retornados
-          if JSONObject.Find('razao_social') <> nil then
-            edtRazaoSocial.Text := JSONObject.Get('razao_social', '');
-          
-          if JSONObject.Find('nome_fantasia') <> nil then
-            edtNomeFantasia.Text := JSONObject.Get('nome_fantasia', '');
-          
-          if JSONObject.Find('uf') <> nil then
-            edtUF.Text := JSONObject.Get('uf', '');
-          
-          ShowMessage('Dados encontrados com sucesso!');
-        end;
+        if not (JSON is TJSONObject) then
+          raise Exception.Create('Resposta JSON inválida');
+        
+        JSONObject := TJSONObject(JSON);
+        
+        // Verificar se há erro na resposta
+        if (JSONObject.Find('status') <> nil) and
+           (JSONObject.Find('message') <> nil) and
+           (JSONObject.Get('status', '') = 'ERROR') then
+          raise Exception.Create(JSONObject.Get('message', 'Erro desconhecido'));
+        
+        // Preencher campos com os dados retornados (ReceitaWS usa nomes diferentes)
+        if JSONObject.Find('nome') <> nil then
+          edtRazaoSocial.Text := JSONObject.Get('nome', '');
+        
+        if JSONObject.Find('fantasia') <> nil then
+          edtNomeFantasia.Text := JSONObject.Get('fantasia', '');
+        
+        if JSONObject.Find('uf') <> nil then
+          edtUF.Text := JSONObject.Get('uf', '');
+        
+        ShowMessage('✅ Dados encontrados com sucesso!' + #13#10 + #13#10 +
+                    'Fonte: ReceitaWS' + #13#10 +
+                    '✨ SEM limite de consultas!');
       finally
         JSON.Free;
       end;
     except
+      on E: EHTTPClient do
+      begin
+        if Pos('404', E.Message) > 0 then
+          ShowMessage('❌ CNPJ não encontrado na base da Receita Federal.' + #13#10 + #13#10 +
+                      'CNPJ pesquisado: ' + CNPJLimpo)
+        else if Pos('400', E.Message) > 0 then
+          ShowMessage('❌ CNPJ inválido.' + #13#10 + #13#10 +
+                      'Verifique se o CNPJ está correto.' + #13#10 +
+                      'CNPJ pesquisado: ' + CNPJLimpo)
+        else
+          ShowMessage('❌ Erro na busca: ' + E.Message + #13#10 + #13#10 +
+                      'CNPJ pesquisado: ' + CNPJLimpo);
+      end;
       on E: Exception do
       begin
-        ShowMessage('Erro ao buscar CNPJ: ' + E.Message + #13#10 + 
-                    'Verifique se o CNPJ está correto e tente novamente.');
+        ShowMessage('❌ Erro ao buscar CNPJ: ' + E.Message);
       end;
     end;
   finally

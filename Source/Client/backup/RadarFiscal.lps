@@ -8,9 +8,10 @@
       <Unit>
         <Filename Value="RadarFiscal.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="43" Y="24"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="25" Y="13"/>
         <UsageCount Value="37"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms\ufrmmain.pas"/>
@@ -100,10 +101,9 @@
         <Filename Value="Forms\ufrmCadastroEmpresas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCadastroEmpresas"/>
-        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
         <TopLine Value="476"/>
         <CursorPos Y="503"/>
         <UsageCount Value="24"/>
@@ -123,9 +123,6 @@
         <UsageCount Value="13"/>
       </Unit>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
     <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>

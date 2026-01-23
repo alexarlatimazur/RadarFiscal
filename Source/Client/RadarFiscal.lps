@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <CursorPos X="25" Y="13"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -21,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="10"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uBaseEntity.pas"/>
@@ -30,7 +30,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uEmpresa.pas"/>
@@ -38,7 +38,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="26" Y="35"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uCertificado.pas"/>
@@ -47,7 +47,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uDocumento.pas"/>
@@ -55,7 +55,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="150"/>
         <CursorPos X="54" Y="164"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uUsuario.pas"/>
@@ -64,13 +64,13 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uConfig.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit>
       <Unit>
         <Filename Value="..\Shared\uDBConnection.pas"/>
@@ -78,7 +78,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="121"/>
         <CursorPos Y="136"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit>
       <Unit>
         <Filename Value="..\DAO\uEmpresaDAO.pas"/>
@@ -86,7 +86,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos Y="64"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="35"/>
       </Unit>
       <Unit>
         <Filename Value="Forms\ufrmConfiguracoes.pas"/>
@@ -95,7 +95,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="112"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
       </Unit>
       <Unit>
         <Filename Value="Forms\ufrmCadastroEmpresas.pas"/>
@@ -106,7 +106,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="476"/>
         <CursorPos Y="503"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\NortusAcbr\Fontes\ACBrTCP\ACBrMail.pas"/>
